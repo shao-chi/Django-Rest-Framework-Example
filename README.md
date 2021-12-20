@@ -37,6 +37,18 @@ $ pip3 install django-cors-headers
 * `MIDDLEWARE`
     * Add `'corsheaders.middleware.CorsMiddleware'`
     * Remove `'django.middleware.csrf.CsrfViewMiddleware'`
+* `CORS_ORIGIN_ALLOW_ALL` : `True`
+* `REST_FRAMEWORK` : 
+    ```
+    {
+        'DEFAULT_PARSER_CLASSES': [
+            'rest_framework.parsers.JSONParser',
+        ],
+        'DEFAULT_RENDERER_CLASSES': [
+            'rest_framework.renderers.JSONRenderer',
+        ],
+    }
+    ```
 * `DATABASES` : database engine and path
 * `TIME_ZONE`
     * Set `'Asia/Taipei'`
