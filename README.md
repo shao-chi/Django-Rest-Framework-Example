@@ -118,6 +118,22 @@ $ pip3 install django-cors-headers
 ./manage.py runserver [ip:port]
 ```
 
+# Docker
+
+## Build Docker Image
+```
+docker build . --tag ${tag}
+```
+
+## Run Docker Container
+```
+docker run \
+    -p 8001:8000 \
+    -it ${tag} \
+    ./manage.py runserver 0.0.0.0:8000
+```
+Then view `https://localhost:8001`
+
 ## Reference
 
 * https://github.com/klin0816/django-course/tree/master/django-rest
