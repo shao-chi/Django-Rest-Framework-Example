@@ -1,6 +1,6 @@
 # Django REST Framework Example
 
-## Install
+### Install
 ```
 # install django, drf, drf-yasg
 $ pip3 install django djangorestframework drf-yasg
@@ -9,7 +9,7 @@ $ pip3 install django djangorestframework drf-yasg
 $ pip3 install django-cors-headers
 ```
 
-## Let's start
+### Let's start
 
 * 建立 project
     ```
@@ -25,7 +25,7 @@ $ pip3 install django-cors-headers
     ```
     在 [dir] 資料夾底下多出現一個 `app` 資料夾，之後 API 的功能就會寫在這裡面
 
-## Setting
+### Setting
 
 `drf_example/settings.py`
 * `ALLOWED_HOSTS` : 設定可以 access 的 host
@@ -53,7 +53,7 @@ $ pip3 install django-cors-headers
 * `TIME_ZONE`
     * Set `'Asia/Taipei'`
 
-## Coding
+### Coding
 
 * app/admin.py
 * app/models.py
@@ -61,7 +61,7 @@ $ pip3 install django-cors-headers
 * app/views.py
 * drf_example/urls.py
 
-## Migrate
+### Migrate
 
 *   建立 DB
 
@@ -76,7 +76,7 @@ $ pip3 install django-cors-headers
     ```
     所有更動都會存在 `app/migrations` 資料夾下
 
-## 新增資料
+### 新增資料
 
 * 進入 python shell
 
@@ -105,14 +105,14 @@ $ pip3 install django-cors-headers
     <QuerySet [<Students: woonai>, <Students: meow>]>
     ```
 
-## 註冊 Super User (admin)
+### 註冊 Super User (admin)
 
 ```
 ./manage.py createsuperuser
 ```
 就可以到 `/admin` 登入
 
-## Run Server
+### Run Server
 
 ```
 ./manage.py runserver [ip:port]
@@ -125,7 +125,7 @@ $ pip3 install django-cors-headers
 docker build . --tag ${tag}
 ```
 
-## Run Docker Container
+### Run Docker Container
 ```
 docker run \
     -p 8001:8000 \
@@ -137,11 +137,11 @@ Then view `https://localhost:8001`
 # Kubernetes
 Implementation on minikube
 
-## Install
+### Install
 * kubectl `brew install kubectl`
 * minikube `brew install minikube`
 
-## 啟動 Minikube
+### 啟動 Minikube
 ```
 minikube start
 ```
@@ -183,7 +183,7 @@ minikube start
     minikube service hello-minikube --url
     ```
 
-## 建立 pod
+### 建立 pod
 - 執行 `kubectl`
     
     ```bash
@@ -204,7 +204,7 @@ minikube start
     kubectl port-forward {POD_NAME} {LOCAL_PORT}:3000
     ```
 
-## 建立 service
+### 建立 service
 - 用 pod 建 service
     - `expose`
         
@@ -246,7 +246,7 @@ minikube start
     curl <CLUSTER-IP>:<port>
     ```
 
-## 建立 deployment
+### 建立 deployment
 - 寫 service yaml 建 deployment
     
     ```bash
@@ -266,7 +266,7 @@ minikube start
     kubectl create -f {SERVICE_YAML}
     ```
 
-## 建立 ingress
+### 建立 ingress
 - 啟用 minikube 的 ingress 功能 `minikube addons enable ingress`
 - 寫 service yaml 建 ingress
     
