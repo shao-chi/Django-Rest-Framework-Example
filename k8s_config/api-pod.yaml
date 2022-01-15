@@ -1,0 +1,25 @@
+# 目前 Kubernetes 中該元件的版本號
+apiVersion: v1
+kind: Pod
+
+# pod name / 可識別資訊 / 其他資訊
+metadata:
+  # Pod 的名稱
+  name: kubernetes-drf-api-pod
+  # Pod 分群 (一對具有辨識度的key/value)
+  labels:
+    app: drfAPI
+  # annotations: 通常是使用者任意自定義的附加資訊
+
+# 定義 container
+spec:
+  containers:
+      # container 的名稱
+    - name: kubernetes-drf-container
+      # Docker Registry 提供的可下載路徑
+      image: jojoli97/drf-api-example
+      # container 要執行的指令
+      command: ["./manage.py", "runserver", "0.0.0.0:3000"]
+      # 哪些 port number 是允許外部資源存取
+      ports:
+        - containerPort: 3000

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: kubernetes-drf-api-deployment
+
+spec:
+  # 指定要建立多少個相同的 Pod
+  replicas: 3
+
+  # Deployment 建立的 Pod 們統一的設定
+  template:
+    metadata:
+      labels:
+        app: drfAPI
+
+    spec:
+      containers:
+        - name: kubernetes-container
+          image: jojoli97/drf-api-example
+          command: ["./manage.py", "runserver", "0.0.0.0:3000"]
+          ports:
+            - containerPort: 3000
+  
+  # 指定這個 Deployment 的規則要適用到哪些 Pod
+  selector:
+    matchLabels:
+      app: drfAPI

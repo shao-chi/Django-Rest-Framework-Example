@@ -1,0 +1,40 @@
+# 目前 Kubernetes 中該元件的版本號
+apiVersion: v1
+kind: Service
+
+# service name / 可識別資訊 / 其他資訊
+metadata:
+  name: kubernetes-drf-api-service
+
+spec:
+  # 該 Service 的連線規則適用在哪一群 Pods，(Pod 的 label)
+  selector:
+    app: drfAPI
+
+  type: NodePort
+  ports:
+    - protocol: TCP
+      # 指定 Pod 上的 targetPort 要 mapping 到 Service 中 ClusterIP 中的哪個 port
+      port: 3001
+      # 指定 Pod 上允許外部資源存取 Port Number
+      targetPort: 3000
+      # 指定 Pod 上的 targetPort 要 mapping 到 Node 上的哪個 port
+      nodePort: 30390
+
+
+# apiVersion: v1
+# kind: Service
+
+# metadata:
+#   name: kubernetes-drf-api-service-2
+
+# spec:
+#   selector:
+#     app: drfAPI-2
+
+#   type: NodePort
+#   ports:
+#     - protocol: TCP
+#       port: 3001
+#       targetPort: 3000
+#       nodePort: 30390
