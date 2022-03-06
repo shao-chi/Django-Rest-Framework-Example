@@ -143,7 +143,7 @@ Implementation on minikube
 
 ### 啟動 Minikube
 ```
-minikube start
+minikube start --vm=true --driver=hyperkit
 ```
 - 查看 Minikube 狀態
     
@@ -203,6 +203,9 @@ minikube start
     # 將 pod 的 port mapping 到本機端上
     kubectl port-forward {POD_NAME} {LOCAL_PORT}:3000
     ```
+
+- 進入 Pod
+     kubectl exec --stdin --tty {POD_NAME} -- /bin/bash
 
 ### 建立 service
 - 用 pod 建 service
