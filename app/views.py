@@ -33,10 +33,10 @@ STATUS_404_NO_STUDENTS = "Student not exists"
 )
 @api_view(['GET'])
 def api(request):
-    # name = request.GET['name']
+    name = request.GET['name']
 
-    # students = Students.objects.filter(name=name).first()
-    students = Students.objects.all()
+    students = Students.objects.filter(name=name)
+    # students = Students.objects.all()
     if not students:
         return Response(
             STATUS_404_NO_STUDENTS,
