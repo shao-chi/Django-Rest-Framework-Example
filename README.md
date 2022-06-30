@@ -19,7 +19,7 @@
     * [Build service](#建立-service)
     * [Build deployment](#建立-deployment)
     * [Build ingress](#建立-ingress)
-4. [Nginx]
+4. [Nginx](#nginx)
     * [Install Nginx](#install-nginx)
     * [Config](#config)
     * [Run Django Rest Framework API with Nginx on Docker](#run-django-rest-framework-api-with-nginx-on-docker)
