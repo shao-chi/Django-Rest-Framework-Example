@@ -1,5 +1,30 @@
 # Django REST Framework Example
 
+1. Let's start
+    * [Install](#install)
+    * [Let's start](#lets-start)
+    * [Setting](#setting)
+    * [Code](#coding)
+    * [Migrate](#migrate)
+    * [Add data](#新增資料)
+    * [Create super user](#註冊-super-user-admin)
+    * [Run Server on localhost](#run-server)
+2. [Docker](#docker)
+    * [Build Docker Image](#build-docker-image)
+    * [Run Docker Container](#run-docker-container)
+3. [Kubernetes](#kubernetes)
+    * [Install Minikube](#install-minikube)
+    * [Start Minikube](#啟動-minikube)
+    * [Build pods](#建立-pod)
+    * [Build service](#建立-service)
+    * [Build deployment](#建立-deployment)
+    * [Build ingress](#建立-ingress)
+4. [Nginx]
+    * [Install Nginx](#install-nginx)
+    * [Config](#config)
+    * [Run Django Rest Framework API with Nginx on Docker](#run-django-rest-framework-api-with-nginx-on-docker)
+* [References](#reference)
+
 ### Install
 ```
 # install django, drf, drf-yasg
@@ -137,7 +162,7 @@ Then view `https://localhost:8001`
 # Kubernetes
 Implementation on minikube
 
-### Install
+### Install Minikube
 * kubectl `brew install kubectl`
 * minikube `brew install minikube`
 
@@ -285,7 +310,42 @@ minikube start --vm=true --driver=hyperkit
     minikube tunnel
     ```
 
+# Nginx
+
+### Install Nginx
+
+```bash
+brew update
+brew install nginx
+```
+
+### Config
+
+- Nginx 的主要設定檔通常會放置在 `/etc/nginx/nginx.conf`
+- 在 `/etc/nginx/conf.d/*.conf` 則會放置不同域名的 config file
+    - 在主設定檔中的 http context 加入一行
+        
+        ```bash
+        include /etc/nginx/conf.d/*.conf;
+        ```
+        
+        即可將不同域名的設定引入，達成方便管理與修改不同域名設定的特性。
+
+- 在 `/etc/nginx/conf.d/` 建立 `default.conf` 的設定檔，來為 Nginx Server 建立基礎的配置
+
+#### config blocks
+
+* `upstream`: 定義我們想要將 request proxy 過去的應用
+* `server`: 定義 proxy server 的相關設定
+    * `location`: routing 的概念, 設定不同的 path 要對應到怎麼樣的設定
+
+### Run Django Rest Framework API with Nginx on Docker
+```bash
+bash docker_run_nginx.sh
+```
+
 # Reference
 
 * https://cwhu.medium.com/kubernetes-implement-ingress-deployment-tutorial-7431c5f96c3e
 * https://github.com/klin0816/django-course/tree/master/django-rest
+* https://medium.com/starbugs/web-server-nginx-2-bc41c6268646
