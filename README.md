@@ -23,11 +23,9 @@
     * [Install Nginx](#install-nginx)
     * [Config](#config)
     * [Run Django Rest Framework API with Nginx on Docker](#run-django-rest-framework-api-with-nginx-on-docker)
+    * [Run Django Rest Framework API with Nginx on Docker Compose](#run-django-rest-framework-api-with-nginx-on-docker-compose)
 * [References](#reference)
 
-#### TODO
-
-- [ ] Run Django Rest Framework API with Nginx on **Docker Compose**
 
 ### Install
 ```
@@ -346,6 +344,11 @@ brew install nginx
 ### Run Django Rest Framework API with Nginx on Docker
 ```bash
 bash docker_run_nginx.sh
+```
+
+### Run Django Rest Framework API with Nginx on Docker Compose
+```bash
+docker compose -f docker-compose-nginx.yml up
 ```
 
 # Reference
